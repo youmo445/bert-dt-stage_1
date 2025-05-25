@@ -1,18 +1,18 @@
 # 基于大语言模型的具身强化学习方法研究
 
-Bert + 对比学习 + decision transformer
+BERT + 对比学习 + Decision Transformer
 
 
 ## Installation
 
-windows或ubuntu中均可使用
+Windows或Ubuntu中均可使用
  - 使用conda创建虚拟环境：
 
 ```
 conda create --name prompt-dt python=3.8.5
 conda activate prompt-dt
 ```
- - 注意，该项目基于decision-transformer，需要mujoco200版本 [mujoco-py repo](https://github.com/openai/mujoco-py).
+ - 注意，该项目基于Decision-Transformer，需要mujoco200版本 [mujoco-py repo](https://github.com/openai/mujoco-py).
 
  - 安装依赖项（部分依赖项需手动安装）：
 

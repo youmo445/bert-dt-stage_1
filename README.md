@@ -1,6 +1,6 @@
 # 基于大语言模型的具身强化学习方法研究
 
-BERT + 对比学习 + Decision Transformer
+BERT + World Model + 对比学习 + Decision Transformer
 
 
 ## Installation

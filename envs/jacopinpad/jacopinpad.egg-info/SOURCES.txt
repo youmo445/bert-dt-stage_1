@@ -1,0 +1,14 @@
+setup.py
+jacopinpad/__init__.py
+jacopinpad/jacopinpad_collect.py
+jacopinpad/jacopinpad_gym.py
+jacopinpad/jacopinpad_tools.py
+jacopinpad/jacopinpad_tools_v0.py
+jacopinpad/settings.py
+jacopinpad.egg-info/PKG-INFO
+jacopinpad.egg-info/SOURCES.txt
+jacopinpad.egg-info/dependency_links.txt
+jacopinpad.egg-info/top_level.txt
+jacopinpad/jac/__init__.py
+jacopinpad/jac/custom_viewer.py
+jacopinpad/jac/screenshot_taker.py

@@ -1,0 +1,8 @@
+{
+    "env": "cheetah_vel",
+    "total_tasks": 9,
+    "train_tasks": [0,6,
+        32,33,
+        35,36],
+    "test_tasks": [2,7,15]
+}

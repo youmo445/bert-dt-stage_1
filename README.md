@@ -1,24 +1,20 @@
-# Prompting Decisicion Transformer for Few-Shot Policy Generalization
+# 基于大语言模型的具身强化学习方法研究
 
-Official code repository for Prompt-DT. [[website]](https://mxu34.github.io/PromptDT/)[[paper]](https://mxu34.github.io/PromptDT/pdf/PromptDT.pdf)
-
-Prompt-DT Architecture:
-
-![Teaser](https://github.com/mxu34/mxu34.github.io/blob/master/PromptDT/img/PromptDT.png)
+Bert + 对比学习 + decision transformer
 
 
 ## Installation
 
-We tested the code in Ubuntu 20.04. 
- - We recommend using Anaconda to create a virtual environment.
+windows或ubuntu中均可使用
+ - 使用conda创建虚拟环境：
 
 ```
 conda create --name prompt-dt python=3.8.5
 conda activate prompt-dt
 ```
- - Our experiments require MuJoCo as well as mujoco-py. Install them by following the instructions in the [mujoco-py repo](https://github.com/openai/mujoco-py).
+ - 注意，该项目基于decision-transformer，需要mujoco200版本 [mujoco-py repo](https://github.com/openai/mujoco-py).
 
- - Install environments and dependencies with the following commands:
+ - 安装依赖项（部分依赖项需手动安装）：
 
 ```
 # install dependencies
@@ -27,10 +23,10 @@ pip install -r requirements.txt
 # install environments
 ./install_envs.sh
 ```
- - We log experiments with [wandb](https://wandb.ai/site?utm_source=google&utm_medium=cpc&utm_campaign=Performance-Max&utm_content=site&gclid=CjwKCAjwlqOXBhBqEiwA-hhitGcG5-wtdqoNgKyWdNpsRedsbEYyK9NeKcu8RFym6h8IatTjLFYliBoCbikQAvD_BwE). Check out the [wandb quickstart doc](https://docs.wandb.ai/quickstart) to create an account.
+ - 我们使用 [wandb](https://wandb.ai/site?utm_source=google&utm_medium=cpc&utm_campaign=Performance-Max&utm_content=site&gclid=CjwKCAjwlqOXBhBqEiwA-hhitGcG5-wtdqoNgKyWdNpsRedsbEYyK9NeKcu8RFym6h8IatTjLFYliBoCbikQAvD_BwE) 进行可视化. 使用 [wandb quickstart doc](https://docs.wandb.ai/quickstart) 创建账户.
 
 ## Download Datasets
- - We share example datasets via this [Google Drive link](https://drive.google.com/drive/folders/1six767uD8yfdgoGIYW86sJY-fmMdYq7e?usp=sharing).
+ - 数据在此 [Google Drive link](https://drive.google.com/drive/folders/1six767uD8yfdgoGIYW86sJY-fmMdYq7e?usp=sharing).
  - Download the "data" folder.
 
 ```
@@ -38,7 +34,7 @@ wget -O data.zip 'https://drive.google.com/uc?export=download&id=1rZufm-XRq1Ig-5
 unzip data.zip
 rm data.zip
 ```
- - Organize folders as follows.
+ - 文件夹格式如下.
 ```
 .
 ├── config
@@ -47,8 +43,10 @@ rm data.zip
 │   ├── cheetah_dir
 │   ├── cheetah_vel
 │   └── ML1-pick-place-v2
+├── dataset
 ├── envs
 ├── prompt_dt
+├── models
 └── ...
 ```
 ## Run Experiments
@@ -66,21 +64,14 @@ python pdt_main.py --no-prompt
 python pdt_main.py --no-prompt --no-rtg --no-r --finetune
 ```
 
+## Attention!
+共有4种文本处理方式，根据需要选择
+- desc2arrray 
+- desc2arrrayCLS
+- load_descriptions_new
+- desc2arrrayMOCO
+train_context_encoder.py是基于世界模型的轨迹表征处理函数
+
 ## Acknowledgements
 The code for prompt-dt is based on [decision-transformer](https://github.com/kzl/decision-transformer). We build environments based on repos including [macaw](https://github.com/eric-mitchell/macaw), [rand_param_envs](https://github.com/dennisl88/rand_param_envs), and [metaworld](https://github.com/rlworkgroup/metaworld).
 
-## References
-If you find our code helpful for your research, please consider citing the paper!
-```		
-@inproceedings{xu2022prompting,
-  title={Prompting Decision Transformer for Few-Shot Policy Generalization},
-  author={Xu, Mengdi and Shen, Yikang and Zhang, Shun and Lu, Yuchen and Zhao, Ding and Tenenbaum, Joshua and Gan, Chuang},
-  booktitle={International Conference on Machine Learning},
-  pages={24631--24645},
-  year={2022},
-  organization={PMLR}
-}
-```
-
- ## Contributions 
-Suggestions for enhancing and improving the code are welcome. Please email mengdixu@andrew.cmu.edu with comments and suggestions.
